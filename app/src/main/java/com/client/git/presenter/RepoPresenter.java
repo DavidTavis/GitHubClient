@@ -2,7 +2,6 @@ package com.client.git.presenter;
 
 import android.os.Bundle;
 
-import com.client.git.model.dto.repo.RepositoryDTO;
 import com.client.git.model.vo.Organization;
 import com.client.git.model.vo.Repository;
 import com.client.git.presenter.mapper.RepoMapper;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import rx.Observer;
 import rx.Subscription;
-import rx.functions.Func1;
 
 /**
  * Created by TechnoA on 24.09.2017.

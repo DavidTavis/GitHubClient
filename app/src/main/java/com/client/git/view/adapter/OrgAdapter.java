@@ -1,6 +1,5 @@
 package com.client.git.view.adapter;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -19,7 +18,6 @@ import com.client.git.model.vo.Organization;
 import com.client.git.presenter.OrgPresenter;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerviewViewHolder;
 import com.marshalchen.ultimaterecyclerview.UltimateViewAdapter;
-import com.marshalchen.ultimaterecyclerview.animators.internal.ViewHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -67,37 +65,20 @@ public class OrgAdapter extends UltimateViewAdapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-//        if (position < getItemCount()
-//                && (customHeaderView != null ? position <= organizationList.size() : position < organizationList.size())
-//                && (customHeaderView == null || position > 0)) {
-//            Organization organization;
-//            organization = organizationList.get(customHeaderView != null ? position - 1 : position);
         Organization organization;
-            organization = organizationList.get(position);
-            // Set data to the view
-            ((ViewHolder) holder).textName.setText(organization.getName());
-            ((ViewHolder) holder).textLocation.setText(organization.getLocation());
+        organization = organizationList.get(position);
+        // Set data to the view
+        ((ViewHolder) holder).textName.setText(organization.getName());
+        ((ViewHolder) holder).textLocation.setText(organization.getLocation());
 
-            SpannableString content = new SpannableString(organization.getBlog());
-            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-            ((ViewHolder) holder).textBlog.setText(content);
-            mPicasso.load(organization.getAvatar()).placeholder(R.mipmap.empty_photo).error(R.mipmap.empty_photo).into(((ViewHolder) holder).imgAvatar);
+        SpannableString content = new SpannableString(organization.getBlog());
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        ((ViewHolder) holder).textBlog.setText(content);
+        mPicasso.load(organization.getAvatar()).placeholder(R.mipmap.empty_photo).error(R.mipmap.empty_photo).into(((ViewHolder) holder).imgAvatar);
 
-            ((ViewHolder) holder).orgItemContainer.setOnClickListener(v -> presenter.clickOrganization(organization));
-//        }
+        ((ViewHolder) holder).orgItemContainer.setOnClickListener(v -> presenter.clickOrganization(organization));
 
-//        if (position > lastPosition) {
-//            // Add animation to the item
-//            for (Animator anim : getAdapterAnimations(holder.itemView,
-//                    AdapterAnimationType.SlideInLeft)) {
-//                anim.setDuration(ANIMATION_DURATION).start();
-//                anim.setInterpolator(interpolator);
-//            }
-//
-//        } else {
-//            ViewHelper.clear(holder.itemView);
-//        }
-//        lastPosition = position;
+
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.client.git.view.adapter;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import com.client.git.model.vo.Repository;
 import com.client.git.presenter.RepoPresenter;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerviewViewHolder;
 import com.marshalchen.ultimaterecyclerview.UltimateViewAdapter;
-import com.marshalchen.ultimaterecyclerview.animators.internal.ViewHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -74,18 +72,6 @@ public class RepoAdapter extends UltimateViewAdapter<RecyclerView.ViewHolder> {
 
         }
 
-//        if (position > lastPosition) {
-//            // Add animation to the item
-//            for (Animator anim : getAdapterAnimations(holder.itemView,
-//                    AdapterAnimationType.SlideInLeft)) {
-//                anim.setDuration(ANIMATION_DURATION).start();
-//                anim.setInterpolator(interpolator);
-//            }
-//
-//        } else {
-//            ViewHelper.clear(holder.itemView);
-//        }
-//        lastPosition = position;
     }
 
     @Override

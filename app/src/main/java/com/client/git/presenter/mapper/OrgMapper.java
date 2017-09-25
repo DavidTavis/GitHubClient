@@ -1,13 +1,8 @@
 package com.client.git.presenter.mapper;
 
-import com.client.git.model.Model;
-import com.client.git.model.ModelImpl;
-import com.client.git.model.dto.org.Item;
 import com.client.git.model.dto.org.OrganizationDTO;
-import com.client.git.model.dto.user.UserDTO;
 import com.client.git.model.vo.Organization;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;

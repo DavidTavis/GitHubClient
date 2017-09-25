@@ -4,7 +4,6 @@ import com.client.git.model.api.Interface;
 import com.client.git.model.api.Module;
 import com.client.git.model.dto.org.OrganizationDTO;
 import com.client.git.model.dto.repo.RepositoryDTO;
-import com.client.git.model.dto.user.UserDTO;
 
 import java.util.List;
 
@@ -36,20 +35,12 @@ public class ModelImpl implements Model {
     }
 
     @Override
-//    public Observable<OrganizationDTO> getSearchOrganization() {
     public Observable<OrganizationDTO> getSearchOrganization(String org) {
         return apiInterface
-//                .getSearchOrganization()
                 .getSearchOrganization(org)
                 .compose(applySchedulers());
     }
 
-    @Override
-    public Observable<UserDTO> getUser(String user) {
-        return apiInterface
-                .getUser(user)
-                .compose(applySchedulers());
-    }
 
     @SuppressWarnings("unchecked")
     private <T> Observable.Transformer<T, T> applySchedulers() {

@@ -1,15 +1,14 @@
 package com.client.git.view.fragment;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.*;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.client.git.R;
@@ -17,7 +16,6 @@ import com.client.git.model.vo.Organization;
 import com.client.git.model.vo.Repository;
 import com.client.git.presenter.BasePresenter;
 import com.client.git.presenter.RepoPresenter;
-import com.client.git.util.Util;
 import com.client.git.view.adapter.RepoAdapter;
 import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 
