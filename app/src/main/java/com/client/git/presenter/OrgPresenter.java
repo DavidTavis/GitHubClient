@@ -42,11 +42,13 @@ public class OrgPresenter extends BasePresenter {
                 nameOrg = name;
             }
         }
+
         Subscription subscription = dataGitHub.getSearchOrganization(name + "type:org")
                 .map(orgMapper)
                 .subscribe(new Observer<List<Organization>>() {
                     @Override
                     public void onCompleted() {
+//                        view.hideProgressBar();
                     }
 
                     @Override
@@ -76,7 +78,10 @@ public class OrgPresenter extends BasePresenter {
 
         if (!isOrgListEmpty()) {
             view.showOrgList(organizationList);
+        }else{
+//            view.showProgressBar();
         }
+
     }
 
     private boolean isOrgListEmpty() {

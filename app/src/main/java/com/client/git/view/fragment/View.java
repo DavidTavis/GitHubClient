@@ -6,5 +6,9 @@ package com.client.git.view.fragment;
 
 public interface View {
 
+    void showProgressBar();
+
+    void hideProgressBar();
+
     void showError(String error);
 }

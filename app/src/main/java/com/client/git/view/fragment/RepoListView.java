@@ -11,6 +11,9 @@ import java.util.List;
 public interface RepoListView extends View {
 
     void showRepoList(List<Repository> vo);
+
+    void showEmptyList();
+
     void showCountRepo(Integer count);
 
 }

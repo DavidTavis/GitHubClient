@@ -19,6 +19,7 @@ import com.client.git.util.Util;
 import com.client.git.view.ActivityCallback;
 import com.client.git.view.adapter.OrgAdapter;
 import com.jakewharton.rxbinding.widget.RxTextView;
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,9 @@ public class OrgListFragment extends BaseFragment implements OrgListView {
 
     @Bind(R.id.et_organization)
     EditText inputOrg;
+
+    @Bind(R.id.prgLoading)
+    CircleProgressBar mPrgLoading;
 
     private OrgAdapter adapter;
 
@@ -109,6 +113,17 @@ public class OrgListFragment extends BaseFragment implements OrgListView {
     @Override
     public void showEmptyList() {
         makeToast(getActivity().getString(R.string.empty_list));
+    }
+
+    @Override
+    public void showProgressBar(){
+        mPrgLoading.setColorSchemeResources(R.color.colorAccent);
+        mPrgLoading.setVisibility(android.view.View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar(){
+        mPrgLoading.setVisibility(View.GONE);
     }
 
     @Override

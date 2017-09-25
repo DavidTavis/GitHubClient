@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.view.*;
+import android.view.View;
 import android.widget.TextView;
 
 import com.client.git.R;
@@ -19,6 +19,7 @@ import com.client.git.presenter.BasePresenter;
 import com.client.git.presenter.RepoPresenter;
 import com.client.git.util.Util;
 import com.client.git.view.adapter.RepoAdapter;
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 
 import java.util.List;
 
@@ -40,6 +41,9 @@ public class RepoListFragment extends BaseFragment implements RepoListView{
 
     @Bind(R.id.tv_count_repo)
     TextView tvCountRepo;
+
+    @Bind(R.id.prgLoading)
+    CircleProgressBar mPrgLoading;
 
     private RepoPresenter presenter;
     private String nameOrg;
@@ -63,9 +67,6 @@ public class RepoListFragment extends BaseFragment implements RepoListView{
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         android.view.View view = inflater.inflate(R.layout.repo_list, container, false);
         ButterKnife.bind(this, view);
-
-//        String infoText = getRepositoryVO().getRepoName() + " (" + getRepositoryVO().getOwnerName() + ")";
-//        info.setText(infoText);
 
         repoRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -105,6 +106,11 @@ public class RepoListFragment extends BaseFragment implements RepoListView{
         makeToast(error);
     }
 
+    @Override
+    public void showEmptyList() {
+        makeToast(getActivity().getString(R.string.empty_list));
+    }
+
     private void makeToast(String text) {
         Snackbar.make(repoRecyclerView, text, Snackbar.LENGTH_LONG).show();
     }
@@ -116,5 +122,16 @@ public class RepoListFragment extends BaseFragment implements RepoListView{
     @Override
     public void showCountRepo(Integer countRepo){
         tvCountRepo.setText(nameOrg + " Repositories (" + countRepo + ")");
+    }
+
+    @Override
+    public void showProgressBar(){
+        mPrgLoading.setColorSchemeResources(R.color.colorAccent);
+        mPrgLoading.setVisibility(android.view.View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar(){
+        mPrgLoading.setVisibility(View.GONE);
     }
 }

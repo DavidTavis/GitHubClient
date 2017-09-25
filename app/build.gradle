@@ -44,5 +44,6 @@ dependencies {
     compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.marshalchen.ultimaterecyclerview:library:0.3.18'
+    compile 'com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE'
 
 }

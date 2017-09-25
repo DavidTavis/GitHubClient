@@ -42,6 +42,7 @@ public class RepoPresenter extends BasePresenter {
                 .map(repoMapper).subscribe(new Observer<List<Repository>>() {
                     @Override
                     public void onCompleted() {
+                        view.hideProgressBar();
                     }
 
                     @Override
@@ -56,7 +57,7 @@ public class RepoPresenter extends BasePresenter {
                             view.showRepoList(list);
                             view.showCountRepo(list.size());
                         } else {
-//                            view.showEmptyList();
+                            view.showEmptyList();
                         }
                     }
                 });
@@ -69,10 +70,12 @@ public class RepoPresenter extends BasePresenter {
         }
 
         if(isRepoListEmpty()) {
+            view.showProgressBar();
             loadRepositoryData();
         }else {
             view.showRepoList(repositoryList);
             view.showCountRepo(repositoryList.size());
+            view.hideProgressBar();
         }
     }
 
